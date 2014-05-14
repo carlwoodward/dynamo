@@ -183,7 +183,7 @@ defmodule Dynamo.Loader do
 
   defp max_last_modified(path, latest) do
     case File.stat(path) do
-      { :ok, File.Stat[mtime: mtime] } -> max(latest, mtime)
+      { :ok, %File.Stat{mtime: mtime} } -> max(latest, mtime)
       { :error, _ } -> latest
     end
   end
